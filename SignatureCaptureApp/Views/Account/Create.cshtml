@@ -1,0 +1,55 @@
+﻿@model Account;
+<h1>Create Account</h1>
+<form method="post" asp-controller="Account" asp-action="Create">
+@*     <link rel="stylesheet" href="~/Signature-Pad/signature-pad.css" /> *@
+   @*  <input type="hidden"asp-for="@Model.Id"/> *@
+    <div class="row">
+        <div class="col-3"> 
+        <label > Name</label>
+        </div>
+        <div class="col-3">
+            <input type="text" asp-for="@Model.Name" />
+            <span asp-validation-for=”@Model.Name” class=”text-danger”></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label> Email Id</label>
+        </div>
+        <div class="col-3">
+            <input type="text" asp-for="@Model.Email" />
+            <span asp-validation-for=”@Model.Email” class=”text-danger”></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label> Phone Number</label>
+        </div>
+        <div class="col-3">
+            <input type="text" asp-for="@Model.PhoneNo" />
+            <span asp-validation-for=”@Model.PhoneNo” class=”text-danger”></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label> Signature</label>
+        </div>
+        @* <div class="col-3">
+            <canvas height="100" width="300"class="signature-pad"></canvas>
+            <a href="#" class="clear-button">Clear</a>
+            <span asp-validation-for=”@Model.SignaturePad” class=”text-danger”></span>
+        </div> *@
+        <div class="col-3">
+        <div id="signature-pad">
+            <canvas id="signatureCanvas"></canvas>
+            <button type="button" id="clearButton">Clear</button>
+        </div>
+        </div>
+    </div>
+          <button class="submit-button" type="submit">SUBMIT</button>
+          <input type="hidden" id="signature-pad" asp-for="@Model.SignaturePad"/>
+          <b>@ViewBag.message</b>
+    
+    </form>
+
+@* <script src="~/Signature-Padsignature_pad.umd.min.js"></script> *@
